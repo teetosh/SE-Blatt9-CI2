@@ -1,5 +1,8 @@
 import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 public class PrimeCheckTest {
@@ -7,29 +10,33 @@ public class PrimeCheckTest {
   @Test
   public void TestNegativeNumbers() {
     for (int i = -10; i < 0; ++i) {
-      assertEquals("Test negative number " + i, false, PrimeCheck.isPrime(i));
+      assertFalse("Test negative number " + i, PrimeCheck.isPrime(i));
     }
   }
 
   // --------------------------------------------------------------- //
   @Test
   public void TestEdgeCases() {
-    assertEquals("Test 0", false, PrimeCheck.isPrime(0));
-    assertEquals("Test 1", false, PrimeCheck.isPrime(1));
-    assertEquals("Test 2", true, PrimeCheck.isPrime(2));
+    assertFalse("Test 0", PrimeCheck.isPrime(0));
+    assertFalse("Test 1", PrimeCheck.isPrime(1));
+    assertTrue("Test 2", PrimeCheck.isPrime(2));
   }
 
   // --------------------------------------------------------------- //
   @Test
   public void testPrimes() {
-    /* ToDo: insert a test here */
-    assertEquals("this will fail", true, false);
+    assertTrue("Testing for primes..", PrimeCheck.isPrime(17));
+    assertTrue("Testing for primes..", PrimeCheck.isPrime(19));
+    assertTrue("Testing for primes..", PrimeCheck.isPrime(97));
+    assertTrue("Testing for primes..", PrimeCheck.isPrime(113));
   }
 
   // --------------------------------------------------------------- //
   @Test
   public void testNonPrimes() {
-    /* ToDo: insert a test here */
-    assertEquals("this will fail", true, false);
+    assertFalse("Testing for non primes..", PrimeCheck.isPrime(90));
+    assertFalse("Testing for non primes..", PrimeCheck.isPrime(78));
+    assertFalse("Testing for non primes..", PrimeCheck.isPrime(33));
+    assertFalse("Testing for non primes..", PrimeCheck.isPrime(56));
   }
 }
